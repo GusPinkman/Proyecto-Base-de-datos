@@ -9,3 +9,6 @@ proyecto final de base de dato PCFix
   Rodrigo Velasquez
   
   Edu Provincia Cuba
+## Descripcion del proyecto
+
+PCFix es un proyecto de Base de Datos orientado a la gestion de servicios de reparacion y mantenimiento de computadoras.
