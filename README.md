@@ -6,7 +6,7 @@ proyecto final de base de dato PCFix
   
   Roald Macedo Boza
   
-  Rodrigo Velasquez
+  Rodrigo Velasquez Bonilla
   
   Edu Provincia Cuba
 ## Descripcion del proyecto
