@@ -2,7 +2,7 @@
 proyecto final de base de dato PCFix
 
 ## integrantes:
-  Gustavo Alpaca Ticona
+  Gustavo Alpaca Ticona (GusPinkman)
   
   Roald Macedo Boza
   
