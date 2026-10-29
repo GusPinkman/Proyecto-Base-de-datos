@@ -1,14 +1,14 @@
 # Proyecto-Base-de-datos
-proyecto final de base de dato PCFix
+Proyecto final de base de datos: PCFix
 
 ## integrantes:
-  Gustavo Alpaca Ticona (GusPinkman)
+  - Gustavo Alpaca Ticona (GusPinkman)
   
-  Roald Macedo Boza
+  - Roald Macedo Boza
   
-  Rodrigo Velasquez Bonilla
+  - Rodrigo Velasquez Bonilla
   
-  Edu Provincia Cuba
+  - Edu Provincia Cuba
 ## Descripcion del proyecto
 
 PCFix es un proyecto de Base de Datos orientado a la gestion de servicios de reparacion y mantenimiento de computadoras.
