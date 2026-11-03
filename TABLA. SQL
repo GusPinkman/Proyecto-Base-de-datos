@@ -1,8 +1,42 @@
-CREATE TABLE pcfix (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    CLIENTE VARCHAR(50),
-    EQUIPO VARCHAR(50),
-    ORDEN_SERVICIO_DATE DATE,
-    TECNICO VARCHAR(50),
-    TIPO_SERVICIO VARCHAR(50)
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20),
+    email VARCHAR(100)
+);
+Tabla Tecnicos
+CREATE TABLE tecnicos (
+    id_tecnico INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    especialidad VARCHAR(50)
+);
+
+Tabla Equipos
+CREATE TABLE equipos (
+    id_equipo INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    tipo_equipo VARCHAR(50) NOT NULL,
+    marca_modelo VARCHAR(100),
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+
+Tabla Tipos_Servicio
+CREATE TABLE tipos_servicio (
+    id_tipo_servicio INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_servicio VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(150)
+);
+
+Tabla Ordenes_Servicio
+CREATE TABLE ordenes_servicio (
+    id_orden INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    id_equipo INT NOT NULL,
+    id_tecnico INT NOT NULL,
+    id_tipo_servicio INT NOT NULL,
+    fecha_orden DATE NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+    FOREIGN KEY (id_equipo) REFERENCES equipos(id_equipo),
+    FOREIGN KEY (id_tecnico) REFERENCES tecnicos(id_tecnico),
+    FOREIGN KEY (id_tipo_servicio) REFERENCES tipos_servicio(id_tipo_servicio)
 );
