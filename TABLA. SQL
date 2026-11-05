@@ -39,7 +39,40 @@ CREATE TABLE estado_orden (
     nombre VARCHAR(50) NOT NULL UNIQUE
 ) ENGINE=InnoDB;
 
+-- 07. PROVEEDOR: empresas que proveen componentes.
+CREATE TABLE proveedor (
+    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20),
+    correo VARCHAR(120)
+) ENGINE=InnoDB;
 
+-- 08. EQUIPO: cada equipo pertenece a un cliente y tiene un tipo.
+CREATE TABLE equipo (
+    id_equipo INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    id_tipo_equipo INT NOT NULL,
+    id_marca INT,
+    modelo VARCHAR(100),
+    numero_serie VARCHAR(100) UNIQUE,
+    observaciones VARCHAR(255),
+    CONSTRAINT fk_equipo_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
+    CONSTRAINT fk_equipo_tipo FOREIGN KEY (id_tipo_equipo) REFERENCES tipo_equipo(id_tipo_equipo),
+    CONSTRAINT fk_equipo_marca FOREIGN KEY (id_marca) REFERENCES marca(id_marca)
+) ENGINE=InnoDB;
+
+-- 09. REPUESTO: inventario de componentes, asociados a un proveedor.
+CREATE TABLE repuesto (
+    id_repuesto INT AUTO_INCREMENT PRIMARY KEY,
+    id_proveedor INT NOT NULL,
+    nombre VARCHAR(120) NOT NULL,
+    descripcion VARCHAR(255),
+    stock INT NOT NULL DEFAULT 0,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    CONSTRAINT fk_repuesto_proveedor FOREIGN KEY (id_proveedor) REFERENCES proveedor(id_proveedor),
+    CONSTRAINT ck_repuesto_stock CHECK (stock >= 0),
+    CONSTRAINT ck_repuesto_precio CHECK (precio_unitario >= 0)
+) ENGINE=InnoDB;
 
 
 
