@@ -1,6 +1,28 @@
+
+
 CREATE TABLE cliente (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     telefono VARCHAR(20),
     correo VARCHAR(120)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE tipo_equipo (
+    id_tipo_equipo INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(60) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+
+CREATE TABLE marca (
+    id_marca INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(70) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+
+CREATE TABLE tecnico (
+    id_tecnico INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    especialidad VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20)
 ) ENGINE=InnoDB;
