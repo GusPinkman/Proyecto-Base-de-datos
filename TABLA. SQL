@@ -26,3 +26,40 @@ CREATE TABLE tecnico (
     especialidad VARCHAR(100) NOT NULL,
     telefono VARCHAR(20)
 ) ENGINE=InnoDB;
+
+
+CREATE TABLE tipo_servicio (
+    id_tipo_servicio INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL UNIQUE,
+    descripcion VARCHAR(255)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE estado_orden (
+    id_estado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Indices adicionales para filtros y JOIN frecuentes.
+CREATE INDEX idx_equipo_cliente ON equipo(id_cliente);
+CREATE INDEX idx_orden_equipo_fecha ON orden_servicio(id_equipo, fecha_ingreso);
+CREATE INDEX idx_orden_tecnico ON orden_servicio(id_tecnico);
+CREATE INDEX idx_orden_estado ON orden_servicio(id_estado);
+CREATE INDEX idx_historial_orden_fecha ON historial_estado(id_orden, fecha_cambio);
+CREATE INDEX idx_detalle_orden ON detalle_servicio(id_orden);
+CREATE INDEX idx_uso_repuesto ON repuesto_utilizado(id_repuesto);
+CREATE INDEX idx_repuesto_proveedor ON repuesto(id_proveedor);
