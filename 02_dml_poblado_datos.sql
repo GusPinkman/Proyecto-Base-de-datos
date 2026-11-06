@@ -1,17 +1,10 @@
-INSERT INTO pcfix
-(CLIENTE, EQUIPO, ORDEN_SERVICIO_DATE, TECNICO, TIPO_SERVICIO, MONTO, METODO_PAGO, ESTADO_PAGO)
-VALUES
-('Juan Perez', 'Laptop', '2026-10-20', 'Carlos', 'Mantenimiento', 120.00, 'Efectivo', 'Pagado'),
-('Maria Lopez', 'PC', '2026-10-21', 'Pedro', 'Reparacion', 250.50, 'Tarjeta', 'Pagado'),
-('Luis Torres', 'Laptop', '2026-10-22', 'Miguel', 'Limpieza', 80.00, 'Yape', 'Pagado'),
-('Ana Flores', 'Impresora', '2026-10-23', 'Carlos', 'Diagnostico', 50.00, 'Efectivo', 'Pendiente'),
-('Jose Ramirez', 'PC', '2026-10-24', 'Pedro', 'Formateo', 150.00, 'Transferencia', 'Pagado')
-
-UPDATE pcfix SET CLIENTE = 'Juan Garcia' WHERE id = 1;
-UPDATE pcfix SET EQUIPO = 'PC Gamer' WHERE id = 2;
-UPDATE pcfix SET TECNICO = 'Roberto' WHERE id = 3;
-UPDATE pcfix SET TIPO_SERVICIO = 'Reparacion' WHERE id = 4;
-UPDATE pcfix SET MONTO = 280.00 WHERE id = 5;
-UPDATE pcfix SET METODO_PAGO = 'Plin' WHERE id = 6;
-UPDATE pcfix SET ESTADO_PAGO = 'Pagado' WHERE id = 7;
-UPDATE pcfix SET ORDEN_SERVICIO_DATE = '2026-10-25' WHERE id = 8;
+-- 01. CLIENTES: 8 clientes con telefono y correo de prueba completos.
+INSERT INTO cliente (id_cliente, nombre, telefono, correo) VALUES
+(1, 'Juan Garcia', '987654321', 'juan.garcia@example.com'),
+(2, 'Maria Lopez', '987654322', 'maria.lopez@example.com'),
+(3, 'Luis Torres', '987654323', 'luis.torres@example.com'),
+(4, 'Ana Flores', '987654324', 'ana.flores@example.com'),
+(5, 'Jose Ramirez', '987654325', 'jose.ramirez@example.com'),
+(6, 'Rosa Salas', '987654326', 'rosa.salas@example.com'),
+(7, 'Diego Quispe', '987654327', 'diego.quispe@example.com'),
+(8, 'Carla Mendoza', '987654328', 'carla.mendoza@example.com');
