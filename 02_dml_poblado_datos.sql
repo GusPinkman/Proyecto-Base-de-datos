@@ -41,6 +41,18 @@ INSERT INTO tipo_servicio (id_tipo_servicio, nombre, descripcion) VALUES
 (7, 'Mantenimiento preventivo', 'Revision para prevenir fallas'),
 (8, 'Instalacion de software', 'Instalacion y configuracion de programas');
 
+-- 06. ESTADOS DE ORDEN: se utilizan los estados de reparacion.
+INSERT INTO estado_orden (id_estado, nombre) VALUES
+(1, 'Pendiente de atencion'),
+(2, 'Registrada'),
+(3, 'En diagnostico'),
+(4, 'En reparacion'),
+(5, 'Finalizada'),
+(6, 'Entregada'),
+(7, 'Cancelada');
+
+
+
 
 
 
