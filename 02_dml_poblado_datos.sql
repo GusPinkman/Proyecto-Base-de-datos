@@ -85,7 +85,75 @@ INSERT INTO repuesto
 (7, 3, 'Cable de red 2 m', 'Cable Ethernet CAT6', 30, 12.00),
 (8, 4, 'Tinta de impresora', 'Botella de tinta compatible', 15, 30.00);
 
+-- 10. ORDENES DE SERVICIO: todas con problema, tecnico y estado coherente.
+INSERT INTO orden_servicio
+(id_orden, id_equipo, id_tecnico, id_estado, fecha_ingreso,
+ problema_reportado, fecha_entrega, costo_estimado, costo_final, observaciones) VALUES
+(1, 1, 1, 6, '2026-10-20', 'Laptop se calienta al trabajar', '2026-10-22', 120.00, 120.00, 'Mantenimiento y entrega completados'),
+(2, 2, 2, 6, '2026-10-21', 'PC Gamer muestra pantalla negra', '2026-10-25', 250.50, 250.50, 'Reparacion completada y equipo entregado'),
+(3, 3, 3, 6, '2026-10-22', 'Equipo con polvo acumulado', '2026-10-23', 80.00, 80.00, 'Limpieza completada y equipo entregado'),
+(4, 4, 1, 4, '2026-10-23', 'Impresora presenta fallas de impresion', NULL, 50.00, NULL, 'En reparacion; pago pendiente'),
+(5, 5, 2, 6, '2026-10-24', 'Sistema operativo dañado; requiere formateo', '2026-10-26', 280.00, 280.00, 'Formateo completado y equipo entregado'),
+(6, 6, 1, 4, '2026-11-01', 'Laptop se calienta demasiado', NULL, 85.00, NULL, 'Mantenimiento en proceso'),
+(7, 7, 2, 5, '2026-11-02', 'PC no se conecta a Wi-Fi', '2026-11-04', 110.00, 110.00, 'Reparacion terminada'),
+(8, 8, 3, 6, '2026-10-27', 'Bateria dura pocos minutos', '2026-10-30', 220.00, 220.00, 'Equipo entregado'),
+(9, 9, 4, 3, '2026-11-03', 'PC Gamer no enciende', NULL, 40.00, NULL, 'En diagnostico'),
+(10, 10, 5, 2, '2026-11-04', 'Impresora trabaja con lentitud', NULL, 55.00, NULL, 'Recien registrada'),
+(11, 6, 5, 4, '2026-11-05', 'Ventilador hace ruido', NULL, 85.00, NULL, 'Segunda orden para el equipo 6'),
+(12, 7, 6, 7, '2026-10-29', 'Revision de conexion por cable', NULL, 0.00, NULL, 'Cancelada por el cliente');
 
+-- 11. HISTORIAL: IDS visibles 
+INSERT INTO historial_estado
+(id_historial, id_orden, id_estado, fecha_cambio, observacion) VALUES
+(1, 1, 2, '2026-10-20 09:00:00', 'Laptop registrada'),
+(2, 1, 4, '2026-10-21 10:00:00', 'Mantenimiento en curso'),
+(3, 1, 6, '2026-10-22 15:00:00', 'Equipo entregado'),
+(4, 2, 2, '2026-10-21 09:15:00', 'PC Gamer registrada'),
+(5, 2, 4, '2026-10-22 11:00:00', 'Reparacion iniciada'),
+(6, 2, 6, '2026-10-25 16:30:00', 'Equipo entregado'),
+(7, 3, 2, '2026-10-22 10:00:00', 'Laptop registrada'),
+(8, 3, 4, '2026-10-22 14:00:00', 'Limpieza en proceso'),
+(9, 3, 6, '2026-10-23 12:00:00', 'Equipo entregado'),
+(10, 4, 2, '2026-10-23 08:30:00', 'Impresora registrada'),
+(11, 4, 4, '2026-10-24 09:00:00', 'Reparacion de impresora en proceso'),
+(12, 5, 2, '2026-10-24 08:45:00', 'PC registrada'),
+(13, 5, 4, '2026-10-25 10:00:00', 'Formateo en proceso'),
+(14, 5, 6, '2026-10-26 17:00:00', 'PC entregada'),
+(15, 6, 2, '2026-11-01 09:00:00', 'Ingreso de equipo'),
+(16, 6, 3, '2026-11-01 10:30:00', 'Revision inicial'),
+(17, 6, 4, '2026-11-02 08:15:00', 'Se inicia mantenimiento'),
+(18, 7, 2, '2026-11-02 09:00:00', 'Ingreso de equipo'),
+(19, 7, 3, '2026-11-02 11:00:00', 'Diagnostico de red'),
+(20, 7, 4, '2026-11-03 09:00:00', 'Cambio de adaptador'),
+(21, 7, 5, '2026-11-04 13:00:00', 'Trabajo terminado'),
+(22, 8, 2, '2026-10-27 09:00:00', 'Ingreso de equipo'),
+(23, 8, 3, '2026-10-27 11:00:00', 'Prueba de bateria'),
+(24, 8, 4, '2026-10-28 10:00:00', 'Cambio de bateria'),
+(25, 8, 5, '2026-10-29 16:00:00', 'Reparacion terminada'),
+(26, 8, 6, '2026-10-30 12:00:00', 'Entrega a cliente'),
+(27, 9, 2, '2026-11-03 08:45:00', 'Ingreso de equipo'),
+(28, 9, 3, '2026-11-03 09:10:00', 'Inicio de diagnostico'),
+(29, 10, 2, '2026-11-04 08:00:00', 'Ingreso de equipo'),
+(30, 11, 2, '2026-11-05 09:00:00', 'Ingreso de equipo'),
+(31, 11, 3, '2026-11-05 10:00:00', 'Revision del ventilador'),
+(32, 11, 4, '2026-11-05 11:00:00', 'Reparacion en proceso'),
+(33, 12, 2, '2026-10-29 09:00:00', 'Ingreso de equipo'),
+(34, 12, 7, '2026-10-29 10:00:00', 'Cliente cancelo el servicio');
+
+-- 12. DIAGNOSTICOS: ID propio, orden y tecnico responsable.
+INSERT INTO diagnostico
+(id_diagnostico, id_orden, id_tecnico, fecha_diagnostico,
+ descripcion, solucion_recomendada) VALUES
+(1, 1, 1, '2026-10-20', 'Temperatura alta por polvo acumulado', 'Limpiar ventilacion y verificar pasta termica'),
+(2, 2, 2, '2026-10-22', 'Falla de video por conexion interna', 'Revisar conexiones y reparar'),
+(3, 3, 3, '2026-10-22', 'Acumulacion de suciedad', 'Realizar limpieza interna y externa'),
+(4, 4, 1, '2026-10-23', 'Rodillos de impresora sucios', 'Limpiar mecanismo y realizar pruebas'),
+(5, 5, 2, '2026-10-24', 'Sistema operativo presenta errores', 'Respaldar informacion y reinstalar Windows'),
+(6, 6, 1, '2026-11-01', 'Acumulacion de polvo y temperatura alta', 'Limpiar y aplicar pasta termica'),
+(7, 7, 2, '2026-11-02', 'Adaptador Wi-Fi defectuoso', 'Reemplazar el adaptador'),
+(8, 8, 3, '2026-10-27', 'Bateria degradada', 'Reemplazar la bateria'),
+(9, 9, 4, '2026-11-03', 'Falla de encendido sin causa confirmada', 'Verificar fuente y memoria RAM'),
+(10, 11, 5, '2026-11-05', 'Ventilador ruidoso', 'Revisar y reemplazar si es necesario');
 
 
 
