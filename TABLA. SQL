@@ -131,6 +131,20 @@ CREATE TABLE detalle_servicio (
     CONSTRAINT ck_detalle_precio CHECK (precio_unitario >= 0)
 ) ENGINE=InnoDB;
 
+-- 14. REPUESTO_UTILIZADO: piezas consumidas por reparacion (relacion N:M).
+CREATE TABLE repuesto_utilizado (
+    id_uso INT AUTO_INCREMENT PRIMARY KEY,
+    id_orden INT NOT NULL,
+    id_repuesto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    CONSTRAINT fk_uso_orden FOREIGN KEY (id_orden) REFERENCES orden_servicio(id_orden),
+    CONSTRAINT fk_uso_repuesto FOREIGN KEY (id_repuesto) REFERENCES repuesto(id_repuesto),
+    CONSTRAINT uq_uso_orden_repuesto UNIQUE (id_orden, id_repuesto),
+    CONSTRAINT ck_uso_cantidad CHECK (cantidad > 0),
+    CONSTRAINT ck_uso_precio CHECK (precio_unitario >= 0)
+) ENGINE=InnoDB;
+
 
 
 
