@@ -20,3 +20,12 @@ INSERT INTO tipo_equipo (id_tipo_equipo, nombre) VALUES
 -- 03. MARCAS: catalogo de marcas usado por todos los equipos.
 INSERT INTO marca (id_marca, nombre) VALUES
 (1, 'ASUS'), (2, 'HP'), (3, 'Lenovo'), (4, 'Dell'), (5, 'Epson');
+
+-- 04. TECNICOS: todos con nombre, especialidad y telefono.
+INSERT INTO tecnico (id_tecnico, nombre, especialidad, telefono) VALUES
+(1, 'Carlos', 'Mantenimiento y hardware', '976000101'),
+(2, 'Pedro', 'Reparacion de equipos', '976000102'),
+(3, 'Roberto', 'Soporte tecnico', '976000103'),
+(4, 'Miguel', 'Diagnostico general', '976000104'),
+(5, 'Sofia', 'Software y mantenimiento', '976000105'),
+(6, 'Mariana', 'Redes', '976000106');
