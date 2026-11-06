@@ -30,6 +30,19 @@ INSERT INTO tecnico (id_tecnico, nombre, especialidad, telefono) VALUES
 (5, 'Sofia', 'Software y mantenimiento', '976000105'),
 (6, 'Mariana', 'Redes', '976000106');
 
+-- 05. SERVICIOS: los presentes originalmente y otros para probar el modelo.
+INSERT INTO tipo_servicio (id_tipo_servicio, nombre, descripcion) VALUES
+(1, 'Mantenimiento', 'Mantenimiento general de computadoras'),
+(2, 'Reparacion', 'Reparacion de fallas de hardware o software'),
+(3, 'Limpieza', 'Limpieza interna y externa del equipo'),
+(4, 'Formateo', 'Reinstalacion del sistema operativo'),
+(5, 'Diagnostico', 'Revision para localizar la causa de una falla'),
+(6, 'Cambio de componente', 'Sustitucion de una pieza defectuosa'),
+(7, 'Mantenimiento preventivo', 'Revision para prevenir fallas'),
+(8, 'Instalacion de software', 'Instalacion y configuracion de programas');
+
+
+
 
 
 
