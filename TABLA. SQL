@@ -145,7 +145,19 @@ CREATE TABLE repuesto_utilizado (
     CONSTRAINT ck_uso_precio CHECK (precio_unitario >= 0)
 ) ENGINE=InnoDB;
 
-
+-- 15. PAGO: metodo, importe y estado de pago independientes de la orden.
+-- Para esta practica: como maximo un registro de pago por orden.
+CREATE TABLE pago (
+    id_pago INT AUTO_INCREMENT PRIMARY KEY,
+    id_orden INT NOT NULL UNIQUE,
+    monto DECIMAL(10,2) NOT NULL,
+    metodo_pago VARCHAR(50),
+    estado_pago VARCHAR(30) NOT NULL,
+    fecha_pago DATE,
+    CONSTRAINT fk_pago_orden FOREIGN KEY (id_orden) REFERENCES orden_servicio(id_orden),
+    CONSTRAINT ck_pago_monto CHECK (monto >= 0),
+    CONSTRAINT ck_pago_estado CHECK (estado_pago IN ('Pagado', 'Pendiente', 'Anulado'))
+) ENGINE=InnoDB;
 
 
 
