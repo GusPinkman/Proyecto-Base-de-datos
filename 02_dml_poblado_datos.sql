@@ -8,3 +8,13 @@ INSERT INTO cliente (id_cliente, nombre, telefono, correo) VALUES
 (6, 'Rosa Salas', '987654326', 'rosa.salas@example.com'),
 (7, 'Diego Quispe', '987654327', 'diego.quispe@example.com'),
 (8, 'Carla Mendoza', '987654328', 'carla.mendoza@example.com');
+
+-- 02. TIPOS DE EQUIPO.
+INSERT INTO tipo_equipo (id_tipo_equipo, nombre) VALUES
+(1, 'Laptop'),
+(2, 'PC Gamer'),
+(3, 'Impresora'),
+(4, 'PC'),
+(5, 'All-in-One');
+
+
