@@ -105,6 +105,17 @@ CREATE TABLE historial_estado (
     CONSTRAINT fk_historial_estado FOREIGN KEY (id_estado) REFERENCES estado_orden(id_estado)
 ) ENGINE=InnoDB;
 
+-- 12. DIAGNOSTICO: a lo sumo un diagnostico principal por orden.
+CREATE TABLE diagnostico (
+    id_diagnostico INT AUTO_INCREMENT PRIMARY KEY,
+    id_orden INT NOT NULL UNIQUE,
+    id_tecnico INT NOT NULL,
+    fecha_diagnostico DATE NOT NULL,
+    descripcion VARCHAR(500) NOT NULL,
+    solucion_recomendada VARCHAR(500),
+    CONSTRAINT fk_diagnostico_orden FOREIGN KEY (id_orden) REFERENCES orden_servicio(id_orden),
+    CONSTRAINT fk_diagnostico_tecnico FOREIGN KEY (id_tecnico) REFERENCES tecnico(id_tecnico)
+) ENGINE=InnoDB;
 
 
 
