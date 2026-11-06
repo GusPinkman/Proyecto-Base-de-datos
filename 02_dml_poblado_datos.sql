@@ -17,4 +17,6 @@ INSERT INTO tipo_equipo (id_tipo_equipo, nombre) VALUES
 (4, 'PC'),
 (5, 'All-in-One');
 
-
+-- 03. MARCAS: catalogo de marcas usado por todos los equipos.
+INSERT INTO marca (id_marca, nombre) VALUES
+(1, 'ASUS'), (2, 'HP'), (3, 'Lenovo'), (4, 'Dell'), (5, 'Epson');
