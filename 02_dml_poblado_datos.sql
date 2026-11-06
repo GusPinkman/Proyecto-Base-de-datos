@@ -51,6 +51,13 @@ INSERT INTO estado_orden (id_estado, nombre) VALUES
 (6, 'Entregada'),
 (7, 'Cancelada');
 
+-- 07. PROVEEDORES (ejemplos ficticios).
+INSERT INTO proveedor (id_proveedor, nombre, telefono, correo) VALUES
+(1, 'Componentes Andinos', '900100001', 'contacto@andinos.test'),
+(2, 'Insumos Tecnicos Sur', '900100002', 'ventas@insumossur.test'),
+(3, 'Redes y Partes', '900100003', 'soporte@redesypartes.test'),
+(4, 'Suministros PC', '900100004', 'pedido@suministrospc.test');
+
 
 
 
