@@ -117,6 +117,20 @@ CREATE TABLE diagnostico (
     CONSTRAINT fk_diagnostico_tecnico FOREIGN KEY (id_tecnico) REFERENCES tecnico(id_tecnico)
 ) ENGINE=InnoDB;
 
+-- 13. DETALLE_SERVICIO: servicios realizados en cada orden (relacion N:M).
+CREATE TABLE detalle_servicio (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+    id_orden INT NOT NULL,
+    id_tipo_servicio INT NOT NULL,
+    cantidad INT NOT NULL DEFAULT 1,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    descripcion VARCHAR(255),
+    CONSTRAINT fk_detalle_orden FOREIGN KEY (id_orden) REFERENCES orden_servicio(id_orden),
+    CONSTRAINT fk_detalle_tipo FOREIGN KEY (id_tipo_servicio) REFERENCES tipo_servicio(id_tipo_servicio),
+    CONSTRAINT ck_detalle_cantidad CHECK (cantidad > 0),
+    CONSTRAINT ck_detalle_precio CHECK (precio_unitario >= 0)
+) ENGINE=InnoDB;
+
 
 
 
