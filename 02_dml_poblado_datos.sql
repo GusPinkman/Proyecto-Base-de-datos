@@ -58,6 +58,22 @@ INSERT INTO proveedor (id_proveedor, nombre, telefono, correo) VALUES
 (3, 'Redes y Partes', '900100003', 'soporte@redesypartes.test'),
 (4, 'Suministros PC', '900100004', 'pedido@suministrospc.test');
 
+-- 08. EQUIPOS: TODOS con cliente, tipo, marca, modelo y serie.
+
+INSERT INTO equipo
+(id_equipo, id_cliente, id_tipo_equipo, id_marca, modelo, numero_serie, observaciones) VALUES
+(1, 1, 1, 1, 'Vivobook 15 X1504', 'PCFIX-DEMO-001', 'Mantenimiento preventivo por temperatura elevada'),
+(2, 2, 2, 1, 'ROG Strix G15', 'PCFIX-DEMO-002', 'Presenta fallas de video al encender'),
+(3, 3, 1, 3, 'IdeaPad 3', 'PCFIX-DEMO-003', 'Limpieza interna y del sistema de refrigeracion'),
+(4, 4, 3, 5, 'EcoTank L3210', 'PCFIX-DEMO-004', 'No imprime correctamente'),
+(5, 5, 4, 2, 'ProDesk 600 G6', 'PCFIX-DEMO-005', 'Reinstalacion de Windows y controladores'),
+(6, 6, 1, 1, 'Vivobook 15', 'PCFIX-DEMO-006', 'Presenta sobrecalentamiento'),
+(7, 7, 4, 2, 'ProDesk 400', 'PCFIX-DEMO-007', 'Falla de conexion a red'),
+(8, 8, 1, 3, 'ThinkPad E14', 'PCFIX-DEMO-008', 'Bateria agotada'),
+(9, 1, 2, 1, 'ROG Strix', 'PCFIX-DEMO-009', 'No inicia'),
+(10, 3, 3, 5, 'EcoTank L3250', 'PCFIX-DEMO-010', 'Impresion lenta');
+
+
 
 
 
