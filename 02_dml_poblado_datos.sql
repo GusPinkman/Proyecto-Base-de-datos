@@ -155,19 +155,59 @@ INSERT INTO diagnostico
 (9, 9, 4, '2026-11-03', 'Falla de encendido sin causa confirmada', 'Verificar fuente y memoria RAM'),
 (10, 11, 5, '2026-11-05', 'Ventilador ruidoso', 'Revisar y reemplazar si es necesario');
 
+-- 13. detalle_servicio
+INSERT INTO detalle_servicio
+(id_detalle, id_orden, id_tipo_servicio, cantidad, precio_unitario, descripcion) VALUES
+(1, 1, 5, 1, 30.00, 'Diagnostico de temperatura'),
+(2, 1, 7, 1, 70.00, 'Mantenimiento preventivo'),
+(3, 2, 5, 1, 50.50, 'Diagnostico de video'),
+(4, 2, 2, 1, 200.00, 'Reparacion de video'),
+(5, 3, 5, 1, 20.00, 'Revision del equipo'),
+(6, 3, 3, 1, 60.00, 'Limpieza interna'),
+(7, 4, 5, 1, 20.00, 'Diagnostico de impresora'),
+(8, 4, 3, 1, 30.00, 'Limpieza de rodillos'),
+(9, 5, 5, 1, 30.00, 'Revision y respaldo'),
+(10, 5, 4, 1, 170.00, 'Formateo de Windows'),
+(11, 5, 8, 1, 80.00, 'Instalacion de programas'),
+(12, 6, 3, 1, 25.00, 'Limpieza interna'),
+(13, 6, 7, 1, 40.00, 'Pruebas termicas'),
+(14, 7, 5, 1, 30.00, 'Diagnostico de red'),
+(15, 7, 2, 1, 45.00, 'Configuracion de red'),
+(16, 8, 5, 1, 20.00, 'Prueba de bateria'),
+(17, 8, 6, 1, 60.00, 'Cambio de bateria'),
+(18, 9, 5, 1, 40.00, 'Pruebas de arranque'),
+(19, 10, 1, 1, 55.00, 'Revision de impresora'),
+(20, 11, 5, 1, 20.00, 'Revision de ventilador');
 
+-- 14. repuesto_utilizado
+INSERT INTO repuesto_utilizado
+(id_uso, id_orden, id_repuesto, cantidad, precio_unitario) VALUES
+(1, 1, 1, 1, 20.00),
+(2, 6, 1, 1, 20.00),
+(3, 7, 4, 1, 35.00),
+(4, 8, 3, 1, 140.00),
+(5, 11, 6, 1, 65.00);
 
+-- 15. pago
+INSERT INTO pago
+(id_pago, id_orden, monto, metodo_pago, estado_pago, fecha_pago) VALUES
+(1, 1, 120.00, 'Efectivo', 'Pagado', '2026-10-22'),
+(2, 2, 250.50, 'Tarjeta', 'Pagado', '2026-10-25'),
+(3, 3, 80.00, 'Yape', 'Pagado', '2026-10-23'),
+(4, 4, 50.00, 'Efectivo', 'Pendiente', NULL),
+(5, 5, 280.00, 'Transferencia', 'Pagado', '2026-10-26'),
+(6, 7, 110.00, 'Tarjeta', 'Pagado', '2026-11-04'),
+(7, 8, 220.00, 'Yape', 'Pagado', '2026-10-30'),
+(8, 12, 0.00, NULL, 'Anulado', NULL);
 
+-- actualizar stock (restar lo que se uso)
+UPDATE repuesto SET stock = stock - 2 WHERE id_repuesto = 1; -- pasta termica
+UPDATE repuesto SET stock = stock - 1 WHERE id_repuesto = 3; -- bateria
+UPDATE repuesto SET stock = stock - 1 WHERE id_repuesto = 4; -- adaptador wifi
+UPDATE repuesto SET stock = stock - 1 WHERE id_repuesto = 6; -- ventilador
 
-
-
-
-
-
-
-
-
-
+-- ver stock
+SELECT id_repuesto, nombre, stock FROM repuesto;
 
 
 
