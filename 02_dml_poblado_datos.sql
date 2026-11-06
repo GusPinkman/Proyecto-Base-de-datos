@@ -255,3 +255,6 @@ ORDER BY e.id_equipo;
 
 SELECT COUNT(*) AS clientes_sin_contacto
 FROM cliente WHERE telefono IS NULL OR correo IS NULL;
+
+SELECT COUNT(*) AS equipos_incompletos
+FROM equipo WHERE id_marca IS NULL OR modelo IS NULL OR numero_serie IS NULL;
