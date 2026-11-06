@@ -73,6 +73,20 @@ INSERT INTO equipo
 (9, 1, 2, 1, 'ROG Strix', 'PCFIX-DEMO-009', 'No inicia'),
 (10, 3, 3, 5, 'EcoTank L3250', 'PCFIX-DEMO-010', 'Impresion lenta');
 
+-- 09. REPUESTOS: el stock aqui es el disponible ANTES de descontar usos.
+INSERT INTO repuesto
+(id_repuesto, id_proveedor, nombre, descripcion, stock, precio_unitario) VALUES
+(1, 1, 'Pasta termica', 'Pasta termica para procesador', 20, 20.00),
+(2, 1, 'Memoria RAM 8 GB', 'Modulo DDR4 de prueba', 12, 85.00),
+(3, 2, 'Bateria para laptop', 'Bateria para equipo de prueba', 8, 140.00),
+(4, 3, 'Adaptador Wi-Fi USB', 'Adaptador de red', 10, 35.00),
+(5, 4, 'SSD 480 GB', 'Almacenamiento de estado solido', 9, 125.00),
+(6, 2, 'Ventilador de laptop', 'Ventilador para disipacion', 10, 65.00),
+(7, 3, 'Cable de red 2 m', 'Cable Ethernet CAT6', 30, 12.00),
+(8, 4, 'Tinta de impresora', 'Botella de tinta compatible', 15, 30.00);
+
+
+
 
 
 
