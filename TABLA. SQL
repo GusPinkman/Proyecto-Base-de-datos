@@ -94,6 +94,19 @@ CREATE TABLE orden_servicio (
     CONSTRAINT ck_orden_final CHECK (costo_final IS NULL OR costo_final >= 0)
 ) ENGINE=InnoDB;
 
+-- 11. HISTORIAL_ESTADO: cada cambio de estado de una orden.
+CREATE TABLE historial_estado (
+    id_historial INT AUTO_INCREMENT PRIMARY KEY,
+    id_orden INT NOT NULL,
+    id_estado INT NOT NULL,
+    fecha_cambio DATETIME NOT NULL,
+    observacion VARCHAR(255),
+    CONSTRAINT fk_historial_orden FOREIGN KEY (id_orden) REFERENCES orden_servicio(id_orden),
+    CONSTRAINT fk_historial_estado FOREIGN KEY (id_estado) REFERENCES estado_orden(id_estado)
+) ENGINE=InnoDB;
+
+
+
 
 
 
