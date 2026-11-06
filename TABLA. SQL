@@ -74,6 +74,26 @@ CREATE TABLE repuesto (
     CONSTRAINT ck_repuesto_precio CHECK (precio_unitario >= 0)
 ) ENGINE=InnoDB;
 
+-- 10. ORDEN_SERVICIO: una reparacion para un equipo, atendida por un tecnico.
+CREATE TABLE orden_servicio (
+    id_orden INT AUTO_INCREMENT PRIMARY KEY,
+    id_equipo INT NOT NULL,
+    id_tecnico INT NOT NULL,
+    id_estado INT NOT NULL,
+    fecha_ingreso DATE NOT NULL,
+    problema_reportado VARCHAR(500) NOT NULL,
+    fecha_entrega DATE,
+    costo_estimado DECIMAL(10,2),
+    costo_final DECIMAL(10,2),
+    observaciones VARCHAR(255),
+    CONSTRAINT fk_orden_equipo FOREIGN KEY (id_equipo) REFERENCES equipo(id_equipo),
+    CONSTRAINT fk_orden_tecnico FOREIGN KEY (id_tecnico) REFERENCES tecnico(id_tecnico),
+    CONSTRAINT fk_orden_estado FOREIGN KEY (id_estado) REFERENCES estado_orden(id_estado),
+    CONSTRAINT ck_orden_fechas CHECK (fecha_entrega IS NULL OR fecha_entrega >= fecha_ingreso),
+    CONSTRAINT ck_orden_estimado CHECK (costo_estimado IS NULL OR costo_estimado >= 0),
+    CONSTRAINT ck_orden_final CHECK (costo_final IS NULL OR costo_final >= 0)
+) ENGINE=InnoDB;
+
 
 
 
